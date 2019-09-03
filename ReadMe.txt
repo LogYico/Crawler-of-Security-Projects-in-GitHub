@@ -1,0 +1,5 @@
+1.程序需要BeautifulSoup、requests、pymysql库支持
+2.UrlCrawler.py将Security主题下的项目名称和网址存入MySql数据库中，以项目Url为主键，作为其他函数调用的基础
+3.FounderCrawler.py、FollowerCrawler.py和ReplicatorCrawler.py分别利用GitHub的查询Api获取项目创建者、关注者和贡献者的个人信息，以用户id和项目Url作为联合主键，存入MySql数据库中
+4.Union.py是集合了四个函数的主函数，在执行完项目Url爬取后，多线程爬取相关用户信息
+5.为避免GitHub限制访问量，通过HeaderMaker()函数在三个私人Token中选择一个，每个Token每分钟可使用Api30次，如果网络状况良好访问较快，可继续在该函数中添加header增加每分钟访问次数
